@@ -1,16 +1,12 @@
- export function hpColor(person) {
+export default function hpColor(person) {
   let hp = null;
   if (person.health < 15) {
-    hp = 'critical'
+    hp = 'critical';
+  } else if (person.health > 50) {
+    hp = 'healthy';
   } else {
-    if (person.health > 50) {
-      hp = 'healthy'
-    } else {
-      hp = 'wounded'
-    }
+    hp = 'wounded';
   }
 
-  return hp
+  return hp;
 }
-
-console.log(hpColor({name: 'Маг', health: 51}))

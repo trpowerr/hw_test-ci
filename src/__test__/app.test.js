@@ -1,5 +1,22 @@
-test('should add two numbers', () => {
-    const received = 1 + 1;
-    const expected = 2;
-    expect(received).toBe(expected);
-})
+import hpColor from '../js/app';
+
+test('check boundary values', () => {
+  const received = hpColor({ name: 'Маг', health: 14 });
+  const expected = 'critical';
+  expect(received).toBe(expected);
+});
+test('check boundary values', () => {
+  const received = hpColor({ name: 'Маг', health: 15 });
+  const expected = 'wounded';
+  expect(received).toBe(expected);
+});
+test('check boundary values', () => {
+  const received = hpColor({ name: 'Маг', health: 50 });
+  const expected = 'wounded';
+  expect(received).toBe(expected);
+});
+test('check boundary values', () => {
+  const received = hpColor({ name: 'Маг', health: 51 });
+  const expected = 'healthy';
+  expect(received).toBe(expected);
+});
